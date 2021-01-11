@@ -3,8 +3,6 @@
 def caesar_cipher(str,key)
     str = str.chomp.to_s
     key = key.chomp.to_i
-    p str
-    p key
     str = str.bytes #convert the string into an array of the converted ascii keys
     str.map! do |item|
         if item>=65 && item<=90
