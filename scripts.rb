@@ -5,19 +5,37 @@ def caesar_cipher(str,key)
     key = key.chomp.to_i
     str = str.bytes #convert the string into an array of the converted ascii keys
     str.map! do |item|
+        key_copy = key
+        needsWrapping = false
         if item>=65 && item<=90
-            while key>(item-90).abs
-                key = key - (item-90).abs 
+            if item==90
+                needsWrapping = true
             end
-            item+key
+            while key_copy>(item-90).abs && (item-90).abs != 0
+                key_copy = key_copy - (item-90).abs
+                needsWrapping = true
+            end
+            if needsWrapping==true
+                64+key_copy
+            else
+                item+key_copy
+            end
 
 
 
         elsif item>=97 && item<=122
-            while key>(item-122).abs
-                key = key - (item-122).abs 
+            if item==122
+                needsWrapping = true
             end
-            item+key
+            while key_copy>(item-122).abs && (item-122).abs != 0
+                key_copy = key_copy - (item-122).abs 
+                needsWrapping = true
+            end
+            if needsWrapping==true
+                96+key_copy
+            else
+                item+key_copy
+            end
 
         else
             item
