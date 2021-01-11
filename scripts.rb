@@ -34,4 +34,4 @@ puts "Enter the string you want encrypted: "
 string = gets
 puts "Enter the key to shift by: "
 shift = gets
-caesar_cipher(string,shift)
+puts caesar_cipher(string,shift)
