@@ -1,7 +1,7 @@
+
+
 def caesar_cipher(str,key)
-    p str
     str = str.bytes #convert the string into an array of the converted ascii keys
-    p str
     str.map! do |item|
         if item>=65 && item<=90
             while key>(item-90).abs
@@ -22,10 +22,8 @@ def caesar_cipher(str,key)
         end
 
     end
-    p str
     str.map!{|item|item.chr}
     str = str.join("")
-    p str
 end
 
-caesar_cipher("Hello world!",2)
+puts caesar_cipher("Hello world!",2)
