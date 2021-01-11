@@ -1,6 +1,10 @@
 
 
 def caesar_cipher(str,key)
+    str = str.chomp.to_s
+    key = key.chomp.to_i
+    p str
+    p key
     str = str.bytes #convert the string into an array of the converted ascii keys
     str.map! do |item|
         if item>=65 && item<=90
@@ -26,4 +30,8 @@ def caesar_cipher(str,key)
     str = str.join("")
 end
 
-puts caesar_cipher("Hello world!",2)
+puts "Enter the string you want encrypted: "
+string = gets
+puts "Enter the key to shift by: "
+shift = gets
+caesar_cipher(string,shift)
