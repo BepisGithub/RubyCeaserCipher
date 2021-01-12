@@ -3,6 +3,16 @@
 def caesar_cipher(str,key)
     str = str.chomp.to_s
     key = key.chomp.to_i
+    
+    until key<26
+        key-=26
+    end
+    p key
+    while key<0
+        key = 26-key.abs
+    end
+    p key
+    
     str = str.bytes #convert the string into an array of the converted ascii keys
     str.map! do |item|
         key_copy = key
